@@ -2,8 +2,9 @@ import { useState } from 'react';
 import initialState from '../initialState';
 
 const useInitialState = () => {
-  const [state, setState] = useState(initialState);
-
+  const [state, setState] = useState({
+    user:{}
+  });
   // const addToCart = (payload) => {
   //   setState({
   //     ...state,
