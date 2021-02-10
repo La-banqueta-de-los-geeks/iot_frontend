@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import styled, {ThemeProvider} from 'styled-components';
 
 import Layout from '../components/Layout.jsx';
 import AppContext from '../context/AppContext';
@@ -7,10 +8,13 @@ import useInitialState from '../hooks/useInitialState';
 
 import Login from '../components/Users/Login.jsx'
 
+import theme from '../theme/index.js'
+console.log("🚀 ~ file: App.jsx ~ line 12 ~ theme", theme)
 const App = () => {
   const initialState = useInitialState();
   return (
     <AppContext.Provider value={initialState}>
+      <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Layout>
           <Switch>
@@ -18,6 +22,7 @@ const App = () => {
           </Switch>
         </Layout>
       </BrowserRouter>
+      </ThemeProvider>
     </AppContext.Provider>
   );
 };
