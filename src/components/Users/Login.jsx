@@ -6,6 +6,7 @@ import axios from 'axios';
 
 // Components
 import Button from '../Share/Button/index.jsx';
+import instance_users from '../../api/resources/users'
 
 export default () => {
   console.log('config', config);
@@ -19,12 +20,18 @@ export default () => {
         password: password
       }
     }
-    axios.post(config.v1.users.login, payload)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        alert(error.response.data.message);
+    // axios.post(config.v1.users.login, payload)
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     alert(error.response.data.message);
+    //   });
+      instance_users.create(payload)
+      .then((result) => {
+        console.log(result);
+      }).catch((err) => {
+        console.log(err);
       });
   }
 
