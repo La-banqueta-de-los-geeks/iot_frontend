@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Container, H1, ButtonActions, ButtonPrimary, ButtonSecondary } from '../../styles'
-import useUsers from '../../hooks/useUsers';
-import config from '../../config';
-import axios from 'axios';
 import instance_users from '../../api/resources/users'
+import { useHistory } from "react-router-dom";
 export default () => {
-  console.log(config);
+
+  const [user, setUser] = useState({})
+  const [token, setToken] = useState({})
+  const [organization, setOrganization] = useState({})
+  const history = useHistory();
   const send_form = (ev) => {
     ev.preventDefault()
     let email = ev.target[0].value
@@ -16,16 +18,15 @@ export default () => {
         password: password
       }
     }
-    // axios.post(config.v1.users.login, payload)
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     alert(error.response.data.message);
-    //   });
-      instance_users.create(payload)
-      .then((result) => {
-        console.log(result);
+    instance_users.create(payload)
+      .then((response) => {
+        let { data } = response
+        localStorage.setItem('token', JSON.stringify(token.token))
+        setUser(data.user)
+        setOrganization(data.organization)
+        setToken(data.token)
+        console.log(user, organization, token, data);
+        history.push("/");
       }).catch((err) => {
         console.log(err);
       });

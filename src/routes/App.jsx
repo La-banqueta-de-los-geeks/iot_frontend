@@ -6,6 +6,7 @@ import AppContext from '../context/AppContext';
 import useInitialState from '../hooks/useInitialState';
 
 import Login from '../components/Users/Login.jsx'
+import Home from '../components/Home.jsx'
 
 const App = () => {
   const initialState = useInitialState();
@@ -14,6 +15,7 @@ const App = () => {
       <BrowserRouter>
         <Layout>
           <Switch>
+            <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
           </Switch>
         </Layout>
