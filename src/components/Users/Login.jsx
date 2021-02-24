@@ -4,11 +4,13 @@ import instance_users from '../../api/resources/users'
 import { useHistory } from "react-router-dom";
 export default () => {
 
-  const [user, setUser] = useState({})
-  const [token, setToken] = useState({})
-  const [organization, setOrganization] = useState({})
+  const [user, setUser] = useState(null)
+  const [token, setToken] = useState(null)
+  const [organization, setOrganization] = useState(null)
   const history = useHistory();
+
   const send_form = (ev) => {
+
     ev.preventDefault()
     let email = ev.target[0].value
     let password = ev.target[1].value
