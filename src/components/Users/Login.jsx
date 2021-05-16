@@ -1,12 +1,16 @@
 import React, { useContext, useState } from 'react';
-import { Card, Container, H1, ButtonActions, ButtonPrimary, ButtonSecondary } from '../../styles'
+import { Card, Container, H1, ButtonActions, FormContainer } from '../../styles'
+import config from '../../config';
 import instance_users from '../../api/resources/users'
 import { useHistory } from "react-router-dom";
+// Components
+import Button from '../Share/Button/index.jsx';
 import AppContext from '../../context/AppContext';
 export default () => {
   const {user, setUser} = useContext(AppContext)
   const {token, setToken} = useContext(AppContext)
   const {organization, setOrganization} = useContext(AppContext)
+  console.log('config', config);
   const history = useHistory();
 
   const send_form = (ev) => {
@@ -20,6 +24,7 @@ export default () => {
         password: password
       }
     }
+      
     instance_users.login(payload)
       .then((response) => {
         let { data } = response
@@ -30,24 +35,29 @@ export default () => {
         setOrganization(data.organization)
         setToken(data.token)
         history.push("/");
+
       }).catch((err) => {
         alert(err)
         console.log(err);
       });
   }
+
   return (
     <Container >
-      <Card className="mx-3 my-2">
-        <H1>Login</H1>
-        <form onSubmit={(ev) => send_form(ev)}>
-          <input type="email" name="email" id="email" placeholder="email" />
-          <input type="password" name="password" id="password" placeholder="password" />
-          <ButtonActions>
-            <ButtonSecondary type="reset">reset</ButtonSecondary>
-            <ButtonPrimary type="submit">Crear</ButtonPrimary>
-          </ButtonActions>
-        </form>
-      </Card>
+      <FormContainer>
+        <Card className="mx-3 my-2">
+          <H1>Login</H1>
+          <form onSubmit={(ev) => send_form(ev)}>
+            <input type="email" name="email" id="email" placeholder="email" />
+            <input type="password" name="password" id="password" placeholder="password" />
+            <ButtonActions>
+              <Button text='Reset' variant='typeB' type="reset" />
+              <Button text='Crear' variant='typeA' type="submit" />
+            </ButtonActions>
+          </form>
+        </Card>
+      </FormContainer>
+
     </Container >
 
   )

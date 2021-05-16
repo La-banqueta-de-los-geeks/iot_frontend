@@ -81,10 +81,21 @@ export const H1 = styled.h1.attrs(() => ({
 export const Card = styled.div.attrs(() => ({
   className: 'card'
 }))`
+  width: 450px;
   margin: 10px auto;
-  padding: 8px;
+  padding: 20px;
   border-radius: 5px;
   background-color: white;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10); 
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10);
+
+`;
+
+export const FormContainer = styled.div.attrs(() => ({
+  className: 'formContainer'
+}))`
+  display: flex;
+  justify-content: center;
   & form {
     display:flex;
     flex-direction: column;
@@ -101,11 +112,15 @@ export const Card = styled.div.attrs(() => ({
     }
   }
 `;
+
 export const ButtonActions = styled.div.attrs(() => ({
   className: 'button-actions'
 }))`
   display:flex;
+  flex-direction: row;
   justify-content: flex-end;
+  width: 100%;
+  margin-top: 20px;
 `
 export const ButtonDefault = styled.button.attrs(() => ({
   className: 'btn-default'
@@ -127,7 +142,3 @@ export const ButtonPrimary = styled(ButtonDefault)`
 export const ButtonSecondary = styled(ButtonDefault)`
   background-color: #5C9EAD;
 `
-// 5C9EAD
-// 326273
-// EEEEEE
-// E39774
