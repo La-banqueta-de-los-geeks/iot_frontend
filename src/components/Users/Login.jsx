@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Card, Container, H1, ButtonActions, ButtonPrimary, ButtonSecondary } from '../../styles'
 import instance_users from '../../api/resources/users'
 import { useHistory } from "react-router-dom";
+import AppContext from '../../context/AppContext';
 export default () => {
-
-  const [user, setUser] = useState(null)
-  const [token, setToken] = useState(null)
-  const [organization, setOrganization] = useState(null)
+  const {user, setUser} = useContext(AppContext)
+  const {token, setToken} = useContext(AppContext)
+  const {organization, setOrganization} = useContext(AppContext)
   const history = useHistory();
 
   const send_form = (ev) => {
@@ -23,13 +23,15 @@ export default () => {
     instance_users.create(payload)
       .then((response) => {
         let { data } = response
-        localStorage.setItem('token', JSON.stringify(token.token))
+        localStorage.setItem('token', JSON.stringify(data.token))
+        localStorage.setItem('user', JSON.stringify(data.user))
+        localStorage.setItem('organization', JSON.stringify(data.organization))
         setUser(data.user)
         setOrganization(data.organization)
         setToken(data.token)
-        console.log(user, organization, token, data);
         history.push("/");
       }).catch((err) => {
+        alert(err)
         console.log(err);
       });
   }
