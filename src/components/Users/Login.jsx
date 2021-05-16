@@ -27,6 +27,7 @@ export default () => {
         password: password
       }
     }
+      
     instance_users.create(payload)
       .then((response) => {
         let { data } = response
@@ -36,6 +37,7 @@ export default () => {
         setToken(data.token)
         console.log(user, organization, token, data);
         history.push("/");
+
       }).catch((err) => {
         console.log(err);
       });
