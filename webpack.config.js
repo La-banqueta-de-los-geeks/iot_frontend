@@ -50,11 +50,14 @@ module.exports = {
     }),
     new Dotenv()
   ],
+  devtool: 'eval-source-map',
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 4003,
     historyApiFallback: true,
+    open: true,
+    hot: true,
   },
 
 };
