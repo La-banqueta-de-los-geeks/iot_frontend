@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { Card, Container, H1, ButtonActions, ButtonPrimary, ButtonSecondary } from '../../styles'
+import useUsers from '../../hooks/useUsers';
+import config from '../../config';
+import axios from 'axios';
 import instance_users from '../../api/resources/users'
 import { useHistory } from "react-router-dom";
-export default () => {
+// Components
+import Button from '../Share/Button/index.jsx';
+import instance_users from '../../api/resources/users'
 
+export default () => {
+  console.log('config', config);
   const [user, setUser] = useState(null)
   const [token, setToken] = useState(null)
   const [organization, setOrganization] = useState(null)
@@ -33,19 +40,23 @@ export default () => {
         console.log(err);
       });
   }
+
   return (
     <Container >
-      <Card className="mx-3 my-2">
-        <H1>Login</H1>
-        <form onSubmit={(ev) => send_form(ev)}>
-          <input type="email" name="email" id="email" placeholder="email" />
-          <input type="password" name="password" id="password" placeholder="password" />
-          <ButtonActions>
-            <ButtonSecondary type="reset">reset</ButtonSecondary>
-            <ButtonPrimary type="submit">Crear</ButtonPrimary>
-          </ButtonActions>
-        </form>
-      </Card>
+      <FormContainer>
+        <Card className="mx-3 my-2">
+          <H1>Login</H1>
+          <form onSubmit={(ev) => send_form(ev)}>
+            <input type="email" name="email" id="email" placeholder="email" />
+            <input type="password" name="password" id="password" placeholder="password" />
+            <ButtonActions>
+              <Button text='Reset' variant='typeB' type="reset" />
+              <Button text='Crear' variant='typeA' type="submit" />
+            </ButtonActions>
+          </form>
+        </Card>
+      </FormContainer>
+
     </Container >
 
   )
