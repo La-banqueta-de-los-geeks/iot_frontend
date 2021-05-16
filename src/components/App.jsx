@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const App = () => {
+  const {user, organization, token} = useState({})
   return (
     <div>
-      <h1>hola mundo</h1>
+      <h1>{user}</h1>
     </div>
   );
 };

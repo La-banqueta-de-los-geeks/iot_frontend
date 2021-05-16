@@ -10,8 +10,6 @@ import {
 } from '../styles/';
 
 export default () => {
-  const { state } = useContext(AppContext);
-  const { social_networks } = state;
   return (
     <Header >
       <Container>
