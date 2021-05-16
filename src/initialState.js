@@ -1,4 +1,7 @@
 export default {
+  user: {},
+  organization: {},
+  token: {},
   episodes: [
     {
       id: 1,
