@@ -4,7 +4,7 @@ import AppContext from '../context/AppContext'
 export default () => {
   const { user, organization, token } = useContext(AppContext);
   return (
-    <div>
+    <>
       <p>
         {JSON.stringify(user, null, 3)}
       </p>
@@ -14,6 +14,6 @@ export default () => {
       <p>
         {JSON.stringify(organization, null, 3)}
       </p>
-    </div>
+    </>
   )
 }
