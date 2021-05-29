@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
+import { useHistory } from "react-router-dom";
 import { Card, Container, H1, ButtonActions, FormContainer } from '../../styles'
 import config from '../../config';
 import instance_users from '../../api/resources/users'
-import { useHistory } from "react-router-dom";
-// Components
-import Button from '../Share/Button/index.jsx';
+import Button from '../Share/Button/index';
 import AppContext from '../../context/AppContext';
+
 export default () => {
   const {user, setUser} = useContext(AppContext)
   const {token, setToken} = useContext(AppContext)
@@ -16,9 +16,9 @@ export default () => {
   const send_form = (ev) => {
 
     ev.preventDefault()
-    let email = ev.target[0].value
-    let password = ev.target[1].value
-    let payload = {
+    const email = ev.target[0].value
+    const password = ev.target[1].value
+    const payload = {
       user: {
         email: email,
         password: password
@@ -43,7 +43,7 @@ export default () => {
   }
 
   return (
-    <Container >
+    <Container>
       <FormContainer>
         <Card className="mx-3 my-2">
           <H1>Login</H1>
@@ -58,7 +58,7 @@ export default () => {
         </Card>
       </FormContainer>
 
-    </Container >
+    </Container>
 
   )
 };

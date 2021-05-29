@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-
-import Layout from '../components/Layout.jsx';
+import Layout from '../components/Layout';
 import AppContext from '../context/AppContext';
-import Login from '../components/Users/Login.jsx'
-import Register from '../components/Users/Register.jsx'
-import Home from '../components/Home.jsx'
+import Login from '../components/Users/Login'
+import Register from '../components/Users/Register'
+import Home from '../components/Home'
 import { SearchOrganization, SearchToken, SearchUser } from '../config/utils';
+import theme from '../theme/index'
 
-import theme from '../theme/index.js'
 console.log("🚀 ~ file: App.jsx ~ line 12 ~ theme", theme)
 const App = () => {
   const [user, setUser] = useState(SearchUser())

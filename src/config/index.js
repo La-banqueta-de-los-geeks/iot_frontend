@@ -1,9 +1,9 @@
-let url_api = String(process.env.URL_API)
+const urlApi = String(process.env.URL_API)
 const config = {
-  url_api,
+  url_api: urlApi,
   v1: {
     users: {
-      login: `${url_api}/v1/users/login`
+      login: `${urlApi}/v1/users/login`
     }
   }
 
