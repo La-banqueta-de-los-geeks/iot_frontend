@@ -1,25 +1,19 @@
-FROM node:13.12.0-alpine
+FROM node:12
 
-# instalar un simple servidor http para servir nuestro contenido estático
-#RUN npm install -g http-server
-
-# hacer la carpeta 'app' el directorio de trabajo actual
+# set the working direction
 WORKDIR /app
 
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
-# copiar 'package.json' y 'package-lock.json' (si están disponibles)
-COPY package*.json ./
+# install app dependencies
+COPY package.json ./
+COPY package-lock.json ./
 
-# instalar dependencias del proyecto
-RUN npm install 
-# --silent
+RUN npm install
 
-# copiar los archivos y carpetas del proyecto al directorio de trabajo actual (es decir, la carpeta 'app')
-COPY . .
+# add app
+COPY . ./
 
-# construir aplicación para producción minificada
-#RUN npm run build
-
-#CMD [ "http-server", "dist" ]
-CMD [ "npm", "start" ]
-#CMD ["ash"]
+# start app
+CMD ["npm", "start"]
