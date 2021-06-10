@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Dashboard from '../components/Dashboard'
 import AppContext from '../context/AppContext'
 
 export default () => {
@@ -14,6 +15,7 @@ export default () => {
       <p>
         {JSON.stringify(organization, null, 3)}
       </p>
+      <Dashboard />
     </>
   )
 }
