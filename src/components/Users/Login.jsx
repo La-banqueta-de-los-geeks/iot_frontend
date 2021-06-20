@@ -7,10 +7,7 @@ import Button from '../Share/Button/index';
 import AppContext from '../../context/AppContext';
 
 export default () => {
-  const {user, setUser} = useContext(AppContext)
-  const {token, setToken} = useContext(AppContext)
-  const {organization, setOrganization} = useContext(AppContext)
-  console.log('config', config);
+  const { setOrganization, setUser } = useContext(AppContext)
   const history = useHistory();
 
   const send_form = (ev) => {
@@ -24,7 +21,7 @@ export default () => {
         password: password
       }
     }
-      
+
     instance_users.login(payload)
       .then((response) => {
         let { data } = response
@@ -33,7 +30,6 @@ export default () => {
         localStorage.setItem('organization', JSON.stringify(data.organization))
         setUser(data.user)
         setOrganization(data.organization)
-        setToken(data.token)
         history.push("/");
 
       }).catch((err) => {

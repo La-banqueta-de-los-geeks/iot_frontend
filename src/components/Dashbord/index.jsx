@@ -1,8 +1,6 @@
 import React from 'react'
-import Ports from './Ports'
-import '../assets/styles/components/Dashboard.scss'
-
-
+import Ports from '../Ports'
+import '../../assets/styles/components/Dashboard.scss'
 
 const Dashboard = () => (
   <>
@@ -29,7 +27,7 @@ const Dashboard = () => (
         <Ports />
         <Ports />
         <Ports />
-     
+
       </div>
     </section>
   </>

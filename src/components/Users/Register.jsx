@@ -5,9 +5,7 @@ import Button from '../Share/Button/index.jsx';
 import { useHistory } from "react-router-dom";
 import AppContext from '../../context/AppContext';
 export default () => {
-  const { user, setUser } = useContext(AppContext)
-  const { token, setToken } = useContext(AppContext)
-  const { organization, setOrganization } = useContext(AppContext)
+  const { setUser, setOrganization } = useContext(AppContext)
   const history = useHistory();
 
   const send_form = (ev) => {
@@ -28,12 +26,10 @@ export default () => {
     instance_users.register(payload)
       .then((response) => {
         let { data } = response
-        localStorage.setItem('token', JSON.stringify(data.token))
         localStorage.setItem('user', JSON.stringify(data.user))
         localStorage.setItem('organization', JSON.stringify(data.organization))
         setUser(data.user)
         setOrganization(data.organization)
-        setToken(data.token)
         history.push("/");
       }).catch((err) => {
         alert(err)

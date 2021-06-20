@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { deleteSession } from '../config/utils';
 import AppContext from '../context/AppContext';
 import {
   Header,
@@ -9,23 +10,36 @@ import {
 
 } from '../styles/';
 
-export default () => {
+export default (props) => {
+  const history = useHistory();
+  const { user, setUser } = useContext(AppContext);
+  const logOut = () => {
+    deleteSession()
+    setUser()
+    history.push("/login");
+  }
   return (
     <Header >
       <Container>
-        <div>.</div>
+        <div>Vurotron</div>
         <Menu>
-          <ListMenu>
+          {user ? <ListMenu>
             <li>
               <Link to="/"> home </Link>
             </li>
             <li>
-              <Link to="/register"> Registro </Link>
+              <a onClick={logOut}> logOut </a>
             </li>
-            <li>
-              <Link to="/login"> Login </Link>
-            </li>
-          </ListMenu>
+          </ListMenu> :
+            <ListMenu>
+              <li>
+                <Link to="/register"> Registro </Link>
+              </li>
+              <li>
+                <Link to="/login"> Login </Link>
+              </li>
+            </ListMenu>
+          }
         </Menu>
       </Container>
     </Header>
