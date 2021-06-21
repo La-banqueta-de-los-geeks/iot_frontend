@@ -3,23 +3,26 @@ import { Route, Redirect } from 'react-router-dom';
 
 const ProtectedRoute = ({ component: Component, user, ...rest }) => {
   return (
-    <Route {...rest} render={
-      props => {
+    <Route
+      {...rest}
+      render={(props) => {
         if (user) {
-          return <Component {...rest} {...props} />
+          return <Component {...rest} {...props} />;
         } else {
-          return <Redirect to={
-            {
-              pathname: '/unauthorized',
-              state: {
-                from: props.location
-              }
-            }
-          } />
+          return (
+            <Redirect
+              to={{
+                pathname: '/unauthorized',
+                state: {
+                  from: props.location,
+                },
+              }}
+            />
+          );
         }
-      }
-    } />
-  )
-}
+      }}
+    />
+  );
+};
 
 export default ProtectedRoute;

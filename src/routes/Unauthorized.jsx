@@ -4,7 +4,7 @@ import '../assets/styles/components/Unauthorized.scss';
 
 const Unauthorized = () => {
   return (
-    <div className='container-gandalf'>
+    <div className="container-gandalf">
       <div className="gandalf">
         <div className="fireball"></div>
         <div className="skirt"></div>
@@ -20,10 +20,17 @@ const Unauthorized = () => {
       </div>
       <div className="message">
         <h1>403 - You Shall Not Pass</h1>
-        <p>Uh oh, Gandalf is blocking the way!<br />Maybe you have a typo in the url? Or you meant to go to a different location? Like...Hobbiton?</p>
+        <p>
+          Uh oh, Gandalf is blocking the way!
+          <br />
+          Maybe you have a typo in the url? Or you meant to go to a different
+          location? Like...Hobbiton?
+        </p>
       </div>
-      <p><Link to='/'>Back to Home</Link></p>
+      <p>
+        <Link to="/">Back to Home</Link>
+      </p>
     </div>
-  )
-}
+  );
+};
 export default Unauthorized;

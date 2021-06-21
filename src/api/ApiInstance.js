@@ -1,16 +1,13 @@
-import axios from 'axios'
-import config from '../config'
+import axios from 'axios';
+import config from '../config';
 
 const ApiInstance = axios.create({
   baseURL: config.url_api,
-  ...headers()
+  headers: { 'Content-Type': 'application/json' },
 });
 
-function headers() {
-  let template = { headers: { 'Content-Type': 'application/json' } }
-  if (true)
-    template['headers']['Authorization'] = `Bearer ${'Token'}`
-  return template;
-}
-
+export const setAuthUserToken = (token) => {
+  if (token)
+    ApiInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
 export default ApiInstance;

@@ -1,19 +1,23 @@
-import React from 'react'
-import '../assets/styles/components/Ports.scss'
+import React, { useContext, useEffect } from 'react';
+import AppContext from '../context/AppContext';
+import '../assets/styles/components/Ports.scss';
+const Ports = () => {
+  const { device_ports } = useContext(AppContext);
 
-const Ports = () => (
-  <div className='dashboard-ports-card'>
-    <p>Puerto 8</p>
-    <form action="" method="post">
-      <select className='options-select minimal' name="options" id="options">
-        <option value="options1">Option 1</option>
-        <option value="options2">Option 2</option>
-        <option value="options3">Option 3</option>
-      </select>
-    </form>
-    <button type='button' className='button-style'>Send</button>
-  </div>
-)
-
-export default Ports
-
+  const handleChange = (selectedOption) => {
+    // setDevice(devices.find((device) => { return device.id == selectedOption.value }))
+  };
+  return (
+    <>
+      {device_ports.map((device_port) => {
+        return (
+          <div key={device_port.id} className="dashboard-ports-card">
+            <p>{device_port.port}</p>
+            <button className="button-style mt-10">{device_port.status}</button>
+          </div>
+        );
+      })}
+    </>
+  );
+};
+export default Ports;
