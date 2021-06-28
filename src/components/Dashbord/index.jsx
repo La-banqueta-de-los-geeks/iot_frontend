@@ -12,7 +12,7 @@ const Dashboard = () => {
       <section className="dashboard">
         <aside className="dashboard-sidemenu">
           <SelectDevices />
-          <Device device={device} />
+          {device && device.id && <Device device={device} />}
         </aside>
         <div className="dashboard-ports-container">
           {device ? <Ports /> : null}

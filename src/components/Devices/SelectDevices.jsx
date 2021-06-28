@@ -3,34 +3,24 @@ import { setAuthUserToken } from '../../api/ApiInstance';
 import devicesEnpoints from '../../api/resources/devices';
 import AppContext from '../../context/AppContext';
 import Select from 'react-select';
-import portsEnpoints from '../../api/resources/ports';
 const SelectDevices = () => {
-  const { user, devices, setDevices, setDevice, setDevicePorts } = useContext(
+  const { user, devices, setDevices, setDevice } = useContext(
     AppContext
   );
   const { user_token } = user;
   setAuthUserToken(user_token);
   useEffect(() => {
-    return devicesEnpoints
+    devicesEnpoints
       .getDevices()
       .then((response) => {
         let { data } = response;
         setDevices(data.devices);
-        console.log(data.devices.length);
-        if (data.devices.length != 0) {
-          let dev = data.devices[0];
-          setDevice(dev);
-          setAuthUserToken(dev.device_token);
-          portsEnpoints
-            .getPorts()
-            .then((response) => {
-              let { data } = response;
-              setDevicePorts(data.device_ports);
-            })
-            .catch((err) => {
-              console.log(err);
-            });
+        if (data.devices.length != 0)
+        {
+          setDevice(data.devices[0]);
         }
+
+
       })
       .catch((err) => {
         console.log(err);
@@ -38,10 +28,11 @@ const SelectDevices = () => {
   }, []);
 
   const handleChange = (selectedOption) => {
+    let device = devices.find((device) => {
+      return device.id == selectedOption.value;
+    })
     setDevice(
-      devices.find((device) => {
-        return device.id == selectedOption.value;
-      })
+      device
     );
   };
   return (

@@ -16,7 +16,7 @@ console.log('🚀 ~ file: App.jsx ~ line 12 ~ theme', theme);
 const App = () => {
   const [device_ports, setDevicePorts] = useState([]);
   const [devices, setDevices] = useState([]);
-  const [device, setDevice] = useState([]);
+  const [device, setDevice] = useState({});
   const [user, setUser] = useState(SearchUser());
   const [organization, setOrganization] = useState(SearchOrganization);
 
