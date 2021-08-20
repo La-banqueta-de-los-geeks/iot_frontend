@@ -1,14 +1,21 @@
 import React, { useContext } from 'react';
 import AppContext from "../context/AppContext";
+import {Footer , Social} from '../styles'
+import disscord from '../assets/static/Discord-Logo-White.svg'
 
-const AboutMe = () => {
+export default () => {
   const { state } = useContext(AppContext);
-  // const { social_networks } = state; me da error
+  // const { social_networks } = state
   return (
-    <div className="flex flex-row flex-wrap my-2" >
-      <h1>Aqui va el footer okay?</h1>
-    </div>
+    <Footer>
+      <p>Muchos robots, una App para dominarlos a todos ! </p>
+      <Social>
+        <a target='_blank' rel='noreferrer' href="https://discord.gg/HtbtB8tZ9a">
+          <img src={disscord} alt="DisscordLogo" /> 
+          La banqueta de los geeks
+        </a>
+      </Social>
+    </Footer>
   );
 };
 
-export default AboutMe;

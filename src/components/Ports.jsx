@@ -1,8 +1,8 @@
 import React from 'react'
-import '../assets/styles/components/Ports.scss'
+import { Ports , ButtonDashboard} from '../styles'
 
-const Ports = () => (
-  <div className='dashboard-ports-card'>
+export default () => (
+  <Ports>
     <p>Puerto 8</p>
     <form action="" method="post">
       <select className='options-select minimal' name="options" id="options">
@@ -11,9 +11,9 @@ const Ports = () => (
         <option value="options3">Option 3</option>
       </select>
     </form>
-    <button type='button' className='button-style'>Send</button>
-  </div>
+    <ButtonDashboard type="button">Send</ButtonDashboard>
+  </Ports>
 )
 
-export default Ports
+
 

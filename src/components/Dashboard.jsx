@@ -1,12 +1,12 @@
 import React from 'react'
 import Ports from './Ports'
-import '../assets/styles/components/Dashboard.scss'
+import { Dashboard , ButtonDashboard  } from '../styles'
 
 
 
-const Dashboard = () => (
+export default () => (
   <>
-    <section className='dashboard'>
+    <Dashboard>
       <aside className='dashboard-sidemenu'>
         <form action="" method="post">
           <select className='device-select' name="Devices" id="device">
@@ -19,20 +19,18 @@ const Dashboard = () => (
         <div className="dashboard-device">
           <div className="device-tittle">
             <h2>Raspberry A</h2>
-            <button className='button-style fix' type='button'>E</button>
+            <ButtonDashboard className="fix" type="button">E</ButtonDashboard>
           </div>
           <p>Trabajando</p>
-          <button type='button' className='button-style'>Agregar Puerto</button>
+          <ButtonDashboard type="button">Agregar Puerto</ButtonDashboard>
         </div>
       </aside>
       <div className='dashboard-ports-container'>
         <Ports />
         <Ports />
         <Ports />
-     
       </div>
-    </section>
+    </Dashboard>
   </>
 )
 
-export default Dashboard
