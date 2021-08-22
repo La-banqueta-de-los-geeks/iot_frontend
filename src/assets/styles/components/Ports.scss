@@ -1,0 +1,49 @@
+@import '../App.scss';
+
+.dashboard-ports-container {
+    width: 70%;
+    height: 100%;
+    min-height: 300px;
+    background-color: $main-color;
+    padding: 10px;
+    border-radius: 3px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-flow: row;
+    gap: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25)
+}
+
+.dashboard-ports-card { 
+    width: 100%;
+    height: 100px;
+    background-color: $second-color;
+    padding: 10px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25)
+}
+.options-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    width: 100%;
+    text-align: center;
+    appearance: none;
+    text-align-last: center;
+    border-radius: 7px;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-image: url('../../static/Polygon1.png');
+    background-repeat: no-repeat;
+    background-position:
+    calc(100% - 20px) calc(1em + -4px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em; 
+}
+
+.dashboard-ports-card p{
+    margin-bottom: 5px;
+}
+

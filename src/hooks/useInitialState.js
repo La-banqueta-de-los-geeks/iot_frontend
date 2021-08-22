@@ -3,12 +3,12 @@ import initialState from '../initialState';
 
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
-  const [user,setUser] = {state}
+  const [user, setUser] = { state };
   return {
     state,
     setState,
     user,
-    setUser
+    setUser,
   };
 };
 
