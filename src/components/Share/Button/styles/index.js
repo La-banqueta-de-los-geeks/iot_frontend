@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const CustomButton = styled.button.attrs(() => ({
+const CustomButton = styled.button.attrs(() => ({
     className: 'CustomButton'
 }))`
 width: 100px;
@@ -9,7 +9,7 @@ width: 100px;
   font-size: 16px;
   border: none;
   margin: 0 5px;
-  
+  cursor: pointer;
   ${(props) => {
         switch (props.variant) {
             case 'typeA':
@@ -30,3 +30,4 @@ width: 100px;
         }
     }};
   `
+  export default CustomButton;

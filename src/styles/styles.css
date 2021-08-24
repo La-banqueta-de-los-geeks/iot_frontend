@@ -11,7 +11,9 @@ html {
 body { 
   width: 100%;
   height: 100%;
-  background: white;
+  height: 100vh;
+  background: rgb(50,98,115);
+  background: linear-gradient(0deg, rgba(50,98,115,1) 0%, rgba(92,158,173,1) 100%);
   font-size:  1.4rem;
 }
 

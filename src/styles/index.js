@@ -79,13 +79,16 @@ export const Container = styled.div.attrs(() => ({
   width: 70%;
   margin: 20px auto;
   height: inherit;
-  display: inherit;
+  display: block;
   align-items: inherit;
   justify-content: inherit;
   flex-wrap: inherit;
-  border: solid 1px red;
   padding: 10px;
 `;
+
+export const DevTools = styled(Container)` 
+    display: none;
+`
 
 export const H1 = styled.h1.attrs(() => ({
   className: 'h1'
@@ -95,7 +98,6 @@ export const H1 = styled.h1.attrs(() => ({
   color: ${props => props.theme.colors.blue2};
   font-size: 3.4rem;
 `;
-
 
 export const Card = styled.div.attrs(() => ({
   className: 'card'
@@ -140,6 +142,7 @@ export const ButtonActions = styled.div.attrs(() => ({
   justify-content: flex-end;
   width: 100%;
   margin-top: 20px;
+  cursor: pointer;
 `
 export const ButtonDefault = styled.button.attrs(() => ({
   className: 'btn-default'
@@ -154,6 +157,7 @@ export const ButtonDefault = styled.button.attrs(() => ({
   font-size: 16px;
   border-radius: 7px;
   margin: 2px;
+  cursor: pointer;
 `
 export const ButtonDefault2 = styled.button.attrs(() => ({
   className: 'button-style'
@@ -180,7 +184,13 @@ export const ButtonDashboard = styled(ButtonDefault2)`
 export const Main = styled.main.attrs(() => ({
   className: "main"
 }))`
-  background-color: ${props => props.theme.colors.white1};
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 50px;
+  background-color: ${props => props.theme.colors.white1  };
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10); 
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10);
+  border-radius: 25px;
 `
 
 // dashboard styles
@@ -340,6 +350,8 @@ export const Footer = styled.footer.attrs(() => ({
 }))`
   width: 100%;
   height: 100px;
+  position: absolute;
+  bottom: 0;
   display: flex;
   justify-content: space-evenly;
   background-color: ${props => props.theme.colors.blue2};
