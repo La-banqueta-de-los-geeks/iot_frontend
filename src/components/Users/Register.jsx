@@ -45,7 +45,7 @@ export default () => {
       <FormContainer>
 
         <Card className="mx-3 my-2">
-          <H1>Login</H1>
+          <H1>Registro</H1>
           <form onSubmit={(ev) => send_form(ev)}>
             <input type="text" name="organization_name" id="organization_name" placeholder="organization name" />
             <input type="email" name="email" id="email" placeholder="email" />

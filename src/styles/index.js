@@ -349,12 +349,12 @@ export const Footer = styled.footer.attrs(() => ({
   className: 'footer'
 }))`
   width: 100%;
-  height: 100px;
+  height: 70px;
   position: absolute;
   bottom: 0;
   display: flex;
   justify-content: space-evenly;
-  background-color: ${props => props.theme.colors.blue2};
+  background-color: ${props => props.theme.colors.purple1};
   padding: 10px;
   & p {
     display: flex;
