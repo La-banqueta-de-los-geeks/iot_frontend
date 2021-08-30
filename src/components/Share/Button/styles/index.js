@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 const CustomButton = styled.button.attrs(() => ({
     className: 'CustomButton'
 }))`
-width: 100px;
+  width: 100px;
   padding: 10px 30px;
   border-radius: 8px;
   font-size: 16px;

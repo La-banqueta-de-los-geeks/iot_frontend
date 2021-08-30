@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import AppContext from "../context/AppContext";
-import {Footer , Social} from '../styles'
+import {FooterContianer , Social} from '../styles'
 import disscord from '../assets/static/Discord-Logo-White.svg'
 
-export default () => {
+const Footer = () => {
   const { state } = useContext(AppContext);
   // const { social_networks } = state
   return (
-    <Footer>
+    <FooterContianer>
       <p>Muchos robots, una App para dominarlos a todos ! </p>
       <Social>
         <a target='_blank' rel='noreferrer' href="https://discord.gg/HtbtB8tZ9a">
@@ -15,7 +15,8 @@ export default () => {
           La banqueta de los geeks
         </a>
       </Social>
-    </Footer>
+    </FooterContianer>
   );
 };
 
+export default Footer

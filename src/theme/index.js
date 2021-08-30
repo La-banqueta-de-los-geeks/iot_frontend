@@ -8,4 +8,4 @@ const colors = {
       gradient: 'linear-gradient(#39598A, #79D7ED)',
   }
 
-  export default {colors}
+export default { colors };

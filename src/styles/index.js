@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import img from '../assets/static/Polygon1.png'
 
-export const Header = styled.header.attrs(() => ({
+export const HeaderContainer = styled.header.attrs(() => ({
   className: 'header'
 }))`
   height: 70px;
@@ -23,7 +23,7 @@ export const Header = styled.header.attrs(() => ({
   & ul li {
     height: inherit;
   }
-  & a{
+  & a {
     display: flex;
     align-items: center;
     height: inherit;
@@ -51,9 +51,9 @@ export const ListMenu = styled.ul.attrs(() => ({
     padding: 0;
     list-style: none;
   }
-`
+`;
 export const HeaderButton = styled.a.attrs(() => ({
-  className: 'header-button'
+  className: 'header-button',
 }))`
   border-radius: 5px;
   color: white;
@@ -66,15 +66,15 @@ export const HeaderButton = styled.a.attrs(() => ({
     background-color: blue;
     padding: 4px;
   }
-`
+`;
 
 export const Menu = styled.nav.attrs(() => ({
   className: "menu"
 }))`
-height: inherit;
-`
+  height: inherit;
+`;
 export const Container = styled.div.attrs(() => ({
-  className: 'container'
+  className: 'container',
 }))`
   width: 70%;
   margin: 20px auto;
@@ -91,7 +91,7 @@ export const DevTools = styled(Container)`
 `
 
 export const H1 = styled.h1.attrs(() => ({
-  className: 'h1'
+  className: 'h1',
 }))`
   margin: 15px 10px; 
   text-align: center;
@@ -100,29 +100,28 @@ export const H1 = styled.h1.attrs(() => ({
 `;
 
 export const Card = styled.div.attrs(() => ({
-  className: 'card'
+  className: 'card',
 }))`
   width: 450px;
   margin: 10px auto;
   padding: 20px;
   border-radius: 5px;
   background-color: white;
-  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10); 
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10);
-
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
 `;
 
 export const FormContainer = styled.div.attrs(() => ({
-  className: 'formContainer'
+  className: 'formContainer',
 }))`
   display: flex;
   justify-content: center;
   & form {
-    display:flex;
+    display: flex;
     flex-direction: column;
     & input {
       padding: 5px;
-      border: .5px solid silver;
+      border: 0.5px solid silver;
       border-radius: 5px;
       text-indent: 10px;
       height: 25px;
@@ -135,9 +134,9 @@ export const FormContainer = styled.div.attrs(() => ({
 `;
 
 export const ButtonActions = styled.div.attrs(() => ({
-  className: 'button-actions'
+  className: 'button-actions',
 }))`
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: flex-end;
   width: 100%;
@@ -145,9 +144,9 @@ export const ButtonActions = styled.div.attrs(() => ({
   cursor: pointer;
 `
 export const ButtonDefault = styled.button.attrs(() => ({
-  className: 'btn-default'
+  className: 'btn-default',
 }))`
-  background-color: #4CAF50; /* Green */
+  background-color: #4caf50; /* Green */
   border: none;
   color: white;
   padding: 10px 30px;
@@ -172,7 +171,7 @@ export const ButtonDefault2 = styled.button.attrs(() => ({
 
 export const ButtonPrimary = styled(ButtonDefault)`
   background-color: #326273;
-`
+`;
 export const ButtonSecondary = styled(ButtonDefault)`
   background-color: #5C9EAD;
 `
@@ -195,7 +194,7 @@ export const Main = styled.main.attrs(() => ({
 
 // dashboard styles
 
-export const Dashboard = styled.section.attrs(() => ({
+export const DashboardContainer = styled.section.attrs(() => ({
   className: "dashboard"
 }))`
   width: 100%;
@@ -304,7 +303,7 @@ export const Dashboard = styled.section.attrs(() => ({
 
 // ports styles
 
-export const Ports = styled.div.attrs(() => ({
+export const PortsContainer = styled.div.attrs(() => ({
   className: 'dashboard-ports-card'
 }))`
     width: 100%;
@@ -345,7 +344,7 @@ export const Social = styled.div.attrs(() => ({
   align-items: center;
 `
 
-export const Footer = styled.footer.attrs(() => ({
+export const FooterContianer = styled.footer.attrs(() => ({
   className: 'footer'
 }))`
   width: 100%;

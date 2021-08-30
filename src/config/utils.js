@@ -7,3 +7,7 @@ export function SearchToken() {
 export function SearchOrganization() {
   return JSON.parse(localStorage.getItem('organization'));
 }
+export function deleteSession() {
+  localStorage.removeItem('user');
+  localStorage.removeItem('organization');
+}

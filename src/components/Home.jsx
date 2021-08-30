@@ -3,7 +3,7 @@ import Dashboard from "./Dashboard"
 import AppContext from '../context/AppContext'
 import {Main , H1 , DevTools} from '../styles'
 
-export default () => {
+const Home = () => {
   const { user, organization, token } = useContext(AppContext);
   return (
     <>
@@ -24,5 +24,7 @@ export default () => {
         </DevTools>
       </Main>
     </>
-  )
-}
+  );
+};
+
+export default Home

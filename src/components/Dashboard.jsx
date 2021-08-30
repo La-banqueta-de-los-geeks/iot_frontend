@@ -1,12 +1,12 @@
 import React from 'react'
 import Ports from './Ports'
-import { Dashboard , ButtonDashboard  } from '../styles'
+import { DashboardContainer , ButtonDashboard  } from '../styles'
 
 
 
-export default () => (
+const DashBoard = () => (
   <>
-    <Dashboard>
+    <DashboardContainer>
       <aside className='dashboard-sidemenu'>
         <form action="" method="post">
           <select className='device-select' name="Devices" id="device">
@@ -30,7 +30,8 @@ export default () => (
         <Ports />
         <Ports />
       </div>
-    </Dashboard>
+    </DashboardContainer>
   </>
 )
 
+export default DashBoard

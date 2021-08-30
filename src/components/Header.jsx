@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import AppContext from '../context/AppContext';
 import {
-  Header,
+  HeaderContainer,
   Menu,
   ListMenu,
 
 } from "../styles";
 
-export default () => (
-  <Header>
+const Header = () => (
+  <HeaderContainer>
     <Menu>
       <ListMenu>
         <li>
@@ -24,5 +24,7 @@ export default () => (
       </ListMenu>
     </Menu>
    
-  </Header>
+  </HeaderContainer>
   );
+
+  export default Header
