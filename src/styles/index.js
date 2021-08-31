@@ -32,6 +32,7 @@ export const HeaderContainer = styled.header.attrs(() => ({
     text-decoration: none;
     font-size: 2.4rem;
     transition:  0.3s ease-out;
+    margin-right: 10px;
     
   }
   & li:hover{

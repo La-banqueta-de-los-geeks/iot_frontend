@@ -4,21 +4,6 @@ import portsEnpoints from '../api/resources/ports';
 import { setAuthUserToken } from '../api/ApiInstance';
 import {  PortsContainer , ButtonDashboard} from '../styles'
 
-// const Ports = () => (
-//   <PortsContainer>
-//     <p>Puerto 8</p>
-//     <form action="" method="post">
-//       <select className='options-select minimal' name="options" id="options">
-//         <option value="options1">Option 1</option>
-//         <option value="options2">Option 2</option>
-//         <option value="options3">Option 3</option>
-//       </select>
-//     </form>
-//     <ButtonDashboard type="button">Send</ButtonDashboard>
-//   </PortsContainer>
-// )
-
-
 const Ports = () => {
   const { device, device_ports, setDevicePorts } = useContext(AppContext);
   const { device_token } = device;
