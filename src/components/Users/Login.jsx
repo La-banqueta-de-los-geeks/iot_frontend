@@ -58,8 +58,8 @@ export default () => {
               placeholder="password"
             />
             <ButtonActions>
-              <Button text="Reset" variant="typeB" type="reset" />
-              <Button text="Crear" variant="typeA" type="submit" />
+              <Button text='Reset' variant='typeB' type="reset" />
+              <Button text='Login' variant='typeA' type="submit" />
             </ButtonActions>
           </form>
         </Card>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { setAuthUserToken } from '../../api/ApiInstance';
 import portsEnpoints from '../../api/resources/ports';
 import AppContext from '../../context/AppContext';
+
 const Device = () => {
   const { device, setDevicePorts } = useContext(
     AppContext

@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import AppContext from '../context/AppContext';
-import '../assets/styles/components/Ports.scss';
 import portsEnpoints from '../api/resources/ports';
 import { setAuthUserToken } from '../api/ApiInstance';
+import {  PortsContainer , ButtonDashboard} from '../styles'
+
 const Ports = () => {
   const { device, device_ports, setDevicePorts } = useContext(AppContext);
   const { device_token } = device;

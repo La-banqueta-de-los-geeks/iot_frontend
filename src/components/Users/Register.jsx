@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Card,
   Container,
@@ -7,9 +8,9 @@ import {
   FormContainer,
 } from '../../styles';
 import instance_users from '../../api/resources/users';
-import Button from '../Share/Button/index.jsx';
-import { useHistory } from 'react-router-dom';
+import Button from '../Share/Button/index';
 import AppContext from '../../context/AppContext';
+
 export default () => {
   const { setUser, setOrganization } = useContext(AppContext);
   const history = useHistory();
@@ -47,7 +48,7 @@ export default () => {
     <Container>
       <FormContainer>
         <Card className="mx-3 my-2">
-          <H1>Login</H1>
+          <H1>Registro</H1>
           <form onSubmit={(ev) => send_form(ev)}>
             <input
               type="text"

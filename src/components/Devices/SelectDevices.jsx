@@ -1,8 +1,10 @@
 import React, { useContext, useEffect } from 'react';
+import Select from 'react-select';
 import { setAuthUserToken } from '../../api/ApiInstance';
 import devicesEnpoints from '../../api/resources/devices';
 import AppContext from '../../context/AppContext';
-import Select from 'react-select';
+import { Container} from '../../styles'
+
 const SelectDevices = () => {
   const { user, devices, setDevices, setDevice } = useContext(
     AppContext
@@ -19,8 +21,6 @@ const SelectDevices = () => {
         {
           setDevice(data.devices[0]);
         }
-
-
       })
       .catch((err) => {
         console.log(err);
@@ -28,21 +28,19 @@ const SelectDevices = () => {
   }, []);
 
   const handleChange = (selectedOption) => {
-    let device = devices.find((device) => {
-      return device.id == selectedOption.value;
-    })
+    let device = devices.find((device) => device.id == selectedOption.value)
     setDevice(
       device
     );
   };
   return (
-    <Select
-      className="mb-10"
-      onChange={handleChange}
-      options={devices.map((device) => {
-        return { value: device.id, label: device.name };
-      })}
-    />
+    <Container>
+      <Select
+        className="mb-10"
+        onChange={handleChange}
+        options={devices.map((device) => ({ value: device.id, label: device.name }))}
+      />
+    </Container>
   );
 };
 
