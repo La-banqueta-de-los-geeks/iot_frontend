@@ -77,7 +77,7 @@ export const Menu = styled.nav.attrs(() => ({
 export const Container = styled.div.attrs(() => ({
   className: 'container',
 }))`
-  width: 70%;
+  width: 90%;
   margin: 20px auto;
   height: inherit;
   display: block;
@@ -198,14 +198,14 @@ export const Main = styled.main.attrs(() => ({
 export const DashboardContainer = styled.section.attrs(() => ({
   className: "dashboard"
 }))`
-  width: 100%;
+    width: 100%;
     height: 100%;
     display: flex;
     margin: 0 auto;
     padding: 20px;
     gap: 20px;
   & .dashboard-sidemenu {
-    width: 30%;
+    width: 40%;
     min-height: 300px;
     background-color: ${props => props.theme.colors.purple1};
     padding: 10px;
@@ -266,32 +266,23 @@ export const DashboardContainer = styled.section.attrs(() => ({
     border-radius: 15px;
     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25)
   }
-
+  @media only screen and (max-width: 475px) {
+        flex-direction: column;
+        .dashboard-sidemenu {
+        width: 100%;
+}
+        .dashboard-ports-container {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        }
+    }
+    
   @media only screen and (max-width: 600px) {
    .device-tittle h2 {
     font-size: 1.6rem;
+ 
    }
-
-    .dashboard-ports-container {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
 }
-
-  @media only screen and (max-width: 475px) {
-    .dashboard {
-        flex-direction: column;
-    }
-    .dashboard-sidemenu {
-        width: 100%;
-        min-height: 0px;
-    }
-
-    
-    .dashboard-ports-container {
-        width: 100%;
-        grid-template-columns: 1fr 1fr;
-    }
- }
 
   @media only screen and (max-width: 375px) {
    
@@ -350,11 +341,9 @@ export const FooterContianer = styled.footer.attrs(() => ({
 }))`
   width: 100%;
   height: 70px;
-  position: absolute;
-  bottom: 0;
   display: flex;
   justify-content: space-evenly;
-  background-color: ${props => props.theme.colors.purple1};
+  background-color: transparent;
   padding: 10px;
   & p {
     display: flex;

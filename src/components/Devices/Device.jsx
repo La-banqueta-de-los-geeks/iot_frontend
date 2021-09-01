@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { setAuthUserToken } from '../../api/ApiInstance';
 import portsEnpoints from '../../api/resources/ports';
 import AppContext from '../../context/AppContext';
+import {ButtonDashboard , DashboardContainer} from '../../styles'
 
 const Device = () => {
   const { device, setDevicePorts } = useContext(
@@ -24,14 +25,14 @@ const Device = () => {
     <div className="dashboard-device">
       <div className="device-tittle">
         <h2>{device.name}</h2>
-        <button className="button-style fix" type="button">
+        <ButtonDashboard className="button-style fix" type="button">
           E
-        </button>
+        </ButtonDashboard>
       </div>
       <p>{device.status}</p>
-      <button type="button" className="button-style">
+      <ButtonDashboard>
         Agregar Puerto
-      </button>
+      </ButtonDashboard>
     </div>
   );
 };
