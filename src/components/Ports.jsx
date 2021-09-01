@@ -31,22 +31,19 @@ const Ports = () => {
   };
   return (
     <>
-      {device_ports && device_ports.length != 0 ? device_ports.map((device_port) => {
-        return (
-          <div key={device_port.id} className="dashboard-ports-card">
+        {device_ports && device_ports.length !== 0 ? device_ports.map((device_port) => (
+           <PortsContainer key={device_port.id} className="dashboard-ports-card">
             <p>{device_port.port}</p>
-            <button
+            <ButtonDashboard
               className="button-style mt-10"
               onClick={() => {
                 handleClick(device_port);
               }}
             >
               {device_port.status}
-            </button>
-          </div>
-        );
-      }) : <p>No existen puetos registrados</p>
-      }
+            </ButtonDashboard>
+          </PortsContainer>
+        )) : <p>No existen puetos registrados</p>}
     </>
   );
 };

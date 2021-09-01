@@ -3,7 +3,7 @@ import Select from 'react-select';
 import { setAuthUserToken } from '../../api/ApiInstance';
 import devicesEnpoints from '../../api/resources/devices';
 import AppContext from '../../context/AppContext';
-import { Container} from '../../styles'
+import { Container , DashboardContainer} from '../../styles'
 
 const SelectDevices = () => {
   const { user, devices, setDevices, setDevice } = useContext(
