@@ -3,7 +3,6 @@ import Select from 'react-select';
 import { setAuthUserToken } from '../../api/ApiInstance';
 import devicesEnpoints from '../../api/resources/devices';
 import AppContext from '../../context/AppContext';
-import { Container , DashboardContainer} from '../../styles'
 
 const SelectDevices = () => {
   const { user, devices, setDevices, setDevice } = useContext(
@@ -17,8 +16,7 @@ const SelectDevices = () => {
       .then((response) => {
         let { data } = response;
         setDevices(data.devices);
-        if (data.devices.length != 0)
-        {
+        if (data.devices.length != 0) {
           setDevice(data.devices[0]);
         }
       })
@@ -34,13 +32,11 @@ const SelectDevices = () => {
     );
   };
   return (
-    <Container>
-      <Select
-        className="mb-10"
-        onChange={handleChange}
-        options={devices.map((device) => ({ value: device.id, label: device.name }))}
-      />
-    </Container>
+    <Select
+      className="mb-10"
+      onChange={handleChange}
+      options={devices.map((device) => ({ value: device.id, label: device.name }))}
+    />
   );
 };
 

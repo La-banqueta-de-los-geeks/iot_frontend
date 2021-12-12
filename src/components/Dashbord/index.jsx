@@ -10,15 +10,23 @@ const Dashboard = () => {
   const { device } = useContext(AppContext);
   return (
     <>
-      <DashboardContainer>
-        <aside className="dashboard-sidemenu">
-          <SelectDevices />
-          {device && <Device device={device} />}
-        </aside>
-        <div className="dashboard-ports-container">
-          {device ? <Ports /> : null}
+      <div className="mx-5">
+        <div className="row">
+          <div className="col-md-3">
+
+            <div className="card">
+              <div className="card-body">
+                <SelectDevices />
+                
+                {device && <Device device={device} />}
+              </div>
+            </div></div>
+          <div className="col-md-9">
+            {device ? <Ports /> : null}
+          </div>
+
         </div>
-      </DashboardContainer>
+      </div>
     </>
   );
 };

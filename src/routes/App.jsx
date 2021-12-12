@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -5,7 +7,6 @@ import Layout from '../components/Layout';
 import AppContext from '../context/AppContext';
 import Login from '../components/Users/Login';
 import Register from '../components/Users/Register';
-import Home from '../components/Home';
 import Dashboard from '../components/Dashbord';
 import ProtectedRoute from './ProtectedRoute';
 import { SearchOrganization, SearchUser } from '../config/utils';
@@ -63,5 +64,4 @@ const App = () => {
     </AppContext.Provider>
   );
 };
-
 export default App;
