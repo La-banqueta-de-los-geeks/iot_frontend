@@ -3,6 +3,8 @@ import { setAuthUserToken } from '../../api/ApiInstance';
 import portsEnpoints from '../../api/resources/ports';
 import AppContext from '../../context/AppContext';
 import { ButtonDashboard } from '../../styles'
+import { CreatePort } from '../Ports/CreatePort';
+import Button from 'react-bootstrap/Button';
 
 const Device = () => {
   const { device, setDevicePorts } = useContext(
@@ -22,15 +24,14 @@ const Device = () => {
       });
   }, [device])
   return (
-    <div className="container">
-      <h2>{device.name}</h2>
-      <ButtonDashboard className="button-style fix" type="button">
-        Actualizar
-      </ButtonDashboard>
-      <p>{device.status}</p>
-      <ButtonDashboard>
-        Agregar Puerto
-      </ButtonDashboard>
+    <div className="mx-1">
+      <h2 className="my-1">{`${device.name} ${device.status}`}</h2>
+      <div className="d-flex justify-content-end">
+        <Button variant="secondary mx-1" >
+          {"Actualizar"}
+        </Button>
+        <CreatePort />
+      </div>
     </div>
   );
 };

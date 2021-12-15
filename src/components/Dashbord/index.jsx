@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import Ports from '../Ports';
 import SelectDevices from '../Devices/SelectDevices';
+import { CreateDevice } from '../Devices/CreateDevice';
 import Device from '../Devices/Device';
 import AppContext from '../../context/AppContext';
-import { DashboardContainer } from '../../styles';
+import { CreatePort } from '../Ports/CreatePort';
 
 
 const Dashboard = () => {
@@ -16,11 +17,19 @@ const Dashboard = () => {
 
             <div className="card">
               <div className="card-body">
-                <SelectDevices />
-                
+                <div className="row">
+                  <div className="col-sm-10">
+                    <SelectDevices />
+                  </div>
+                  <div className="col-sm-2 py-2">
+                    <CreateDevice />
+                  </div>
+                </div>
+
                 {device && <Device device={device} />}
               </div>
-            </div></div>
+            </div>
+          </div>
           <div className="col-md-9">
             {device ? <Ports /> : null}
           </div>

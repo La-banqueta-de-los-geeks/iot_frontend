@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react';
-import AppContext from '../context/AppContext';
-import portsEnpoints from '../api/resources/ports';
-import { setAuthUserToken } from '../api/ApiInstance';
-import { PortsContainer, ButtonDashboard } from '../styles'
+import AppContext from '../../context/AppContext';
+import portsEnpoints from '../../api/resources/ports';
+import { setAuthUserToken } from '../../api/ApiInstance';
+import { PortsContainer, ButtonDashboard } from '../../styles'
 
 const Ports = () => {
   const { device, device_ports, setDevicePorts } = useContext(AppContext);
@@ -32,7 +32,7 @@ const Ports = () => {
   return (
     <div className="row">
       {device_ports && device_ports.length !== 0 ? device_ports.map((device_port) => (
-        <div className="col-md-3" >
+        <div className="col-sm-3 col-md-2 py-2" key={device_port.id}>
           <PortsContainer key={device_port.id} >
             <p>{device_port.port}</p>
             <ButtonDashboard

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
   Card,
@@ -7,7 +7,6 @@ import {
   ButtonActions,
   FormContainer,
 } from '../../styles';
-import config from '../../config';
 import instance_users from '../../api/resources/users';
 import Button from '../Share/Button/index';
 import AppContext from '../../context/AppContext';
