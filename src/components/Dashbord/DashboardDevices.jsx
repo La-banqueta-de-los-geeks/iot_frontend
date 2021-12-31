@@ -4,10 +4,9 @@ import SelectDevices from '../Devices/SelectDevices';
 import { CreateDevice } from '../Devices/CreateDevice';
 import Device from '../Devices/Device';
 import AppContext from '../../context/AppContext';
-import Tabs from 'react-bootstrap/Tabs'
-import Tab from 'react-bootstrap/Tab'
 
-const Dashboard = () => {
+
+const DashboardDevices = () => {
   const { device } = useContext(AppContext);
   return (
     <>
@@ -31,19 +30,7 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="col-md-9">
-            <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mb-3">
-              <Tab eventKey="home" title="Home">
-                <p>lorem</p>
-
-              </Tab>
-              <Tab eventKey="profile" title="Profile">
-                {device ? <Ports /> : null}
-
-              </Tab>
-              <Tab eventKey="contact" title="Contact" >
-                <p>t</p>
-              </Tab>
-            </Tabs>
+            {device ? <Ports /> : null}
           </div>
 
         </div>
@@ -52,4 +39,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default DashboardDevices;
