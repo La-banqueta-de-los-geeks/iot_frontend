@@ -1,42 +1,80 @@
 import React, { useContext, useEffect } from 'react';
-import Select from 'react-select';
-import { setAuthUserToken } from '../../api/ApiInstance';
-import devicesEnpoints from '../../api/resources/devices';
+
 import AppContext from '../../context/AppContext';
+import ListGroup from 'react-bootstrap/ListGroup';
+import { getDeviceGroups } from '../../services/resources/groups';
+import { getDevices } from '../../services/resources/devices';
+import { getPorts } from '../../services/resources/ports';
+import { setAuthUserToken } from '../../services/ApiInstance';
 
 const SelectDevices = () => {
-  const { user, devices, setDevices, setDevice } = useContext(
-    AppContext
-  );
+  const {
+    user,
+    devices,
+    setDevices,
+    setDevice,
+    device,
+    setDevicePorts,
+    setDeviceGroup,
+    setDeviceGroups,
+  } = useContext(AppContext);
+
   const { user_token } = user;
   setAuthUserToken(user_token);
+
   useEffect(() => {
-    devicesEnpoints
-      .getDevices()
+    getDevices()
       .then((response) => {
-        let { data } = response;
-        setDevices(data.devices);
-        if (data.devices.length != 0) {
-          setDevice(data.devices[0]);
-        }
+        let { devices } = response;
+        setDevices(devices);
+        if (devices.length != 0) setDevice(devices[0]);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  const handleChange = (selectedOption) => {
-    let device = devices.find((device) => device.id == selectedOption.value)
-    setDevice(
-      device
-    );
+  const handleChange = (new_device) => {
+    setDevice(new_device);
   };
+
+  useEffect(() => {
+    if (!device) return;
+    setAuthUserToken(device.device_token);
+    Promise.all([getDeviceGroups(device.id), getPorts()])
+      .then(([groups, ports]) => {
+        setDeviceGroups(groups.device_groups);
+        setDevicePorts(ports.device_ports);
+        const [first] = groups.device_groups;
+        if (first) setDeviceGroup(first);
+      })
+      .catch((err) => {
+        setDeviceGroups([]);
+        setDevicePorts([]);
+        console.log(err);
+      });
+  }, [device]);
+
   return (
-    <Select
-      className="mb-10"
-      onChange={handleChange}
-      options={devices.map((device) => ({ value: device.id, label: device.name }))}
-    />
+    <>
+      {devices.length !== 0 ? (
+        <div className="menu-main-device_sequences">
+          {devices.map((device) => (
+            <ListGroup key={device.id} className="content-device_sequences">
+              <ListGroup.Item
+                onClick={() => {
+                  handleChange(device);
+                }}
+              >
+                {device.name}
+              </ListGroup.Item>
+            </ListGroup>
+          ))}
+        </div>
+      ) : (
+        <p>No existen secuencias</p>
+      )}
+    </>
   );
 };
 

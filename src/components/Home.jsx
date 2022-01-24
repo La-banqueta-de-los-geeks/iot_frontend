@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import Dashboard from "./Dashboard"
-import AppContext from '../context/AppContext'
-import {Main , H1 , DevTools} from '../styles'
+import Dashboard from './Dashboard';
+import AppContext from '../context/AppContext';
+import { Main, H1, DevTools } from '../styles';
 
 const Home = () => {
   const { user, organization, token } = useContext(AppContext);
@@ -12,19 +12,13 @@ const Home = () => {
         <Dashboard />
         <DevTools>
           <h2>Develepers tools</h2>
-          <p>
-            {JSON.stringify(user, null, 3)}
-          </p>
-          <p>
-            {JSON.stringify(token, null, 3)}
-          </p>
-          <p>
-            {JSON.stringify(organization, null, 3)}
-          </p>
+          <p>{JSON.stringify(user, null, 3)}</p>
+          <p>{JSON.stringify(token, null, 3)}</p>
+          <p>{JSON.stringify(organization, null, 3)}</p>
         </DevTools>
       </Main>
     </>
   );
 };
 
-export default Home
+export default Home;

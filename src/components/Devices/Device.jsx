@@ -1,17 +1,15 @@
 import React, { useContext, useEffect } from 'react';
-import { setAuthUserToken } from '../../api/ApiInstance';
-import portsEnpoints from '../../api/resources/ports';
+
 import AppContext from '../../context/AppContext';
-import { ButtonDashboard } from '../../styles'
-import { CreatePort } from '../Ports/CreatePort';
 import Button from 'react-bootstrap/Button';
+import { CreatePort } from '../Ports/CreatePort';
+import portsEnpoints from '../../services/resources/ports';
+import { setAuthUserToken } from '../../services/ApiInstance';
 
 const Device = () => {
-  const { device, setDevicePorts } = useContext(
-    AppContext
-  );
+  const { device, setDevicePorts } = useContext(AppContext);
   useEffect(() => {
-    const device_token = device.device_token
+    const device_token = device.device_token;
     setAuthUserToken(device_token);
     portsEnpoints
       .getPorts()
@@ -22,14 +20,12 @@ const Device = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [device])
+  }, [device]);
   return (
     <div className="mx-1">
       <h2 className="my-1">{`${device.name} ${device.status}`}</h2>
       <div className="d-flex justify-content-end">
-        <Button variant="secondary mx-1" >
-          {"Actualizar"}
-        </Button>
+        <Button variant="secondary mx-1">{'Actualizar'}</Button>
         <CreatePort />
       </div>
     </div>

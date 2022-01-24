@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import Ports from '../Ports';
-import SelectDevices from '../Devices/SelectDevices';
+
+import AppContext from '../../context/AppContext';
 import { CreateDevice } from '../Devices/CreateDevice';
 import Device from '../Devices/Device';
-import AppContext from '../../context/AppContext';
-
+import Ports from '../Ports';
+import SelectDevices from '../Devices/SelectDevices';
 
 const DashboardDevices = () => {
   const { device } = useContext(AppContext);
@@ -13,7 +13,6 @@ const DashboardDevices = () => {
       <div className="mx-5">
         <div className="row">
           <div className="col-md-3">
-
             <div className="card">
               <div className="card-body">
                 <div className="row">
@@ -29,10 +28,7 @@ const DashboardDevices = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-9">
-            {device ? <Ports /> : null}
-          </div>
-
+          <div className="col-md-9">{device ? <Ports /> : null}</div>
         </div>
       </div>
     </>

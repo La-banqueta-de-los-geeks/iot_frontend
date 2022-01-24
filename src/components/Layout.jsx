@@ -4,10 +4,10 @@ import Footer from './Footer';
 
 const Layout = ({ children }) => (
   <>
-    <Header />  
+    <Header />
     {children}
     <Footer />
   </>
-  );
+);
 
 export default Layout;

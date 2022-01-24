@@ -1,21 +1,24 @@
 import React from 'react';
 import AppContext from '../context/AppContext';
-import portsEnpoints from '../services/resources/ports';
+import devicesEnpoints from '../services/resources/devices';
 
-function usePorts() {
-  const { device_ports, setDevicePorts } = React.useContext(AppContext);
-  const addDevicePorts = (device_port) => {
-    const newPorts = [...device_ports];
-    newPorts.push(device_port);
-    setDevicePorts(newPorts);
+function useDeviceGroups() {
+  const { setDeviceGroups, setDeviceGroup, device_groups } = React.useContext(
+    AppContext
+  );
+  const addDevices = (device_group) => {
+    const newDeviceGroups = [...device_groups];
+    newDeviceGroups.push(device_group);
+    setDeviceGroups(newDeviceGroups);
   };
-  const registerDevicePort = (payload, callback, reject) =>
-    portsEnpoints
-      .createPort(payload)
+  const registerDeviceGroup = (payload, callback, reject) =>
+    devicesEnpoints
+      .createDevice(payload)
       .then((response) => {
         const { data } = response;
-        const { device_port } = data;
-        addDevicePorts(device_port);
+        const { device } = data;
+        addDevices(device);
+        setDeviceGroup(device);
         callback();
       })
       .catch((error) => {
@@ -38,9 +41,9 @@ function usePorts() {
         }
       });
   return {
-    registerDevicePort,
-    addDevicePorts,
+    registerDeviceGroup,
+    addDevices,
   };
 }
 
-export default usePorts;
+export default useDeviceGroups;

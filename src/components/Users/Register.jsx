@@ -1,15 +1,16 @@
-import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import {
+  ButtonActions,
   Card,
   Container,
-  H1,
-  ButtonActions,
   FormContainer,
+  H1,
 } from '../../styles';
-import instance_users from '../../api/resources/users';
-import Button from '../Share/Button/index';
+import React, { useContext, useState } from 'react';
+
 import AppContext from '../../context/AppContext';
+import Button from '../Share/Button/index';
+import instance_users from '../../services/resources/users';
+import { useHistory } from 'react-router-dom';
 
 export default () => {
   const { setUser, setOrganization } = useContext(AppContext);

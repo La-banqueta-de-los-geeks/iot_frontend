@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-function CustomModal({ buttonActionText,
+function CustomModal({
+  buttonActionText,
   buttonActionVariant,
   ModalTitle,
   buttonSecondaryText,
@@ -10,9 +11,8 @@ function CustomModal({ buttonActionText,
   handleShow,
   show,
   children,
-  onBodyCard }) {
-
-
+  onBodyCard,
+}) {
   return (
     <>
       <Button variant={buttonActionVariant} onClick={handleShow}>
@@ -23,11 +23,7 @@ function CustomModal({ buttonActionText,
         <Modal.Header closeButton>
           <Modal.Title>{ModalTitle}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          {
-            children
-          }
-        </Modal.Body>
+        <Modal.Body>{children}</Modal.Body>
       </Modal>
     </>
   );

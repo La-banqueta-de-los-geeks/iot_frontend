@@ -1,21 +1,12 @@
-import React from "react";
+import React from 'react';
 import Button from 'react-bootstrap/Button';
-import Form from "react-bootstrap/Form"
-import FloatingLabel from "react-bootstrap/FloatingLabel"
-const FormDevice = (
-  {
-    register,
-    handleClose
-  }
-) => {
+import Form from 'react-bootstrap/Form';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+const FormDevice = ({ register, handleClose }) => {
   return (
     <>
       <Form onSubmit={register}>
-        <FloatingLabel
-          controlId="floatingInput"
-          label="Name"
-          className="mb-3"
-        >
+        <FloatingLabel controlId="floatingInput" label="Name" className="mb-3">
           <Form.Control type="text" placeholder="Raspberry" />
         </FloatingLabel>
         <FloatingLabel
@@ -30,14 +21,14 @@ const FormDevice = (
         </FloatingLabel>
         <div className="d-flex justify-content-end">
           <Button className="mx-2" variant="secondary" onClick={handleClose}>
-            {"Cancelar"}
+            {'Cancelar'}
           </Button>
-          <Button className="mx-2" type="submit" variant="primary" >
-            {"Crear"}
+          <Button className="mx-2" type="submit" variant="primary">
+            {'Crear'}
           </Button>
         </div>
       </Form>
     </>
-  )
-}
-export { FormDevice }
+  );
+};
+export { FormDevice };

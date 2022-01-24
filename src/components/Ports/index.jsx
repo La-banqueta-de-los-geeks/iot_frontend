@@ -1,8 +1,9 @@
-import React, { useContext, useEffect } from 'react';
+import { ButtonDashboard, PortsContainer } from '../../styles';
+import React, { useContext } from 'react';
+
 import AppContext from '../../context/AppContext';
-import portsEnpoints from '../../api/resources/ports';
-import { setAuthUserToken } from '../../api/ApiInstance';
-import { PortsContainer, ButtonDashboard } from '../../styles'
+import portsEnpoints from '../../services/resources/ports';
+import { setAuthUserToken } from '../../services/ApiInstance';
 
 const Ports = () => {
   const { device, device_ports, setDevicePorts } = useContext(AppContext);
@@ -31,21 +32,25 @@ const Ports = () => {
   };
   return (
     <div className="row">
-      {device_ports && device_ports.length !== 0 ? device_ports.map((device_port) => (
-        <div className="col-sm-3 col-md-2 py-2" key={device_port.id}>
-          <PortsContainer key={device_port.id} >
-            <p>{`${device_port.id} ${device_port.port}`}</p>
-            <ButtonDashboard
-              className="button-style mt-10"
-              onClick={() => {
-                handleClick(device_port);
-              }}
-            >
-              {device_port.status}
-            </ButtonDashboard>
-          </PortsContainer>
-        </div>
-      )) : <p>No existen puetos registrados</p>}
+      {device_ports && device_ports.length !== 0 ? (
+        device_ports.map((device_port) => (
+          <div className="col-sm-3 col-md-2 py-2" key={device_port.id}>
+            <PortsContainer key={device_port.id}>
+              <p>{`${device_port.id} ${device_port.port}`}</p>
+              <ButtonDashboard
+                className="button-style mt-10"
+                onClick={() => {
+                  handleClick(device_port);
+                }}
+              >
+                {device_port.status}
+              </ButtonDashboard>
+            </PortsContainer>
+          </div>
+        ))
+      ) : (
+        <p>No existen puetos registrados</p>
+      )}
     </div>
   );
 };

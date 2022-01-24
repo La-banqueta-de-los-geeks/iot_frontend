@@ -1,29 +1,60 @@
 * {
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
 }
 
 html {
-  font-size: 62.5%;
+    font-size: 62.5%;
 }
 
-body { 
-  min-block-size: 100vh;
-  background:#5C9EAD;
-  background: linear-gradient(0deg, #B5A4F9 0%, #5C9EAD 100%);
-  font-size:  1.4rem;
+body {
+    min-block-size: 100vh;
+    background: #5C9EAD;
+    background: linear-gradient(0deg, #B5A4F9 0%, #5C9EAD 100%);
+    font-size: 1.4rem;
 }
 
 .px-5 {
-  padding-left: 250px !important;
-  padding-right: 250px !important;
+    padding-left: 250px !important;
+    padding-right: 250px !important;
 }
+
 .mx-3 {
-  margin-left: 150px !important;
-  margin-right: 150px !important;
+    margin-left: 150px !important;
+    margin-right: 150px !important;
 }
+
 .my-2 {
-  margin-top: 50px !important;
-  margin-bottom: 50px !important;
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+}
+
+.mx-2 {
+    margin-left: 50px !important;
+    margin-right: 50px !important;
+}
+
+.menu-main-device {
+    max-height: 57em;
+    width: auto;
+    overflow-y: auto;
+}
+
+.content-device {
+    overflow-y: auto;
+}
+
+.menu-main-device_groups {
+    max-height: 57em;
+    width: auto;
+    overflow-y: auto;
+}
+
+.content-device_groups {
+    overflow-y: auto;
+}
+
+.display-flex {
+    display: flex;
 }

@@ -1,25 +1,25 @@
 import styled from 'styled-components';
-import img from '../assets/static/Polygon1.png'
+import img from '../assets/static/Polygon1.png';
 
 export const HeaderContainer = styled.header.attrs(() => ({
-  className: 'header'
+  className: 'header',
 }))`
   height: 70px;
   width: 100%;
-  background: ${props => props.theme.colors.blue1};
+  background: ${(props) => props.theme.colors.blue1};
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  align-items: center;  
+  align-items: center;
   @media only screen and (max-width: 475px) {
-      justify-content: center;
+    justify-content: center;
   }
 
   & ul {
     display: flex;
     height: inherit;
     align-items: center;
-    }
+  }
   & ul li {
     height: inherit;
   }
@@ -28,26 +28,25 @@ export const HeaderContainer = styled.header.attrs(() => ({
     align-items: center;
     height: inherit;
     padding: 0 10px;
-    color: ${props => props.theme.colors.white1};
+    color: ${(props) => props.theme.colors.white1};
     text-decoration: none;
     font-size: 2.4rem;
-    transition:  0.3s ease-out;
+    transition: 0.3s ease-out;
     margin-right: 10px;
-    
   }
-  & li:hover{
-    background-color:${props => props.theme.colors.blue2};
+  & li:hover {
+    background-color: ${(props) => props.theme.colors.blue2};
     transition-duration: 3sec;
-    transition:  0.3s ease-out;
+    transition: 0.3s ease-out;
   }
-`
+`;
 export const ListMenu = styled.ul.attrs(() => ({
-  className: "list-menu"
+  className: 'list-menu',
 }))`
   margin: 0;
   padding: 0;
   list-style: none;
-  & ul > li { 
+  & ul > li {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -70,7 +69,7 @@ export const HeaderButton = styled.a.attrs(() => ({
 `;
 
 export const Menu = styled.nav.attrs(() => ({
-  className: "menu"
+  className: 'menu',
 }))`
   height: inherit;
 `;
@@ -87,16 +86,16 @@ export const Container = styled.div.attrs(() => ({
   padding: 10px;
 `;
 
-export const DevTools = styled(Container)` 
-    display: none;
-`
+export const DevTools = styled(Container)`
+  display: none;
+`;
 
 export const H1 = styled.h1.attrs(() => ({
   className: 'h1',
 }))`
-  margin: 15px 10px; 
+  margin: 15px 10px;
   text-align: center;
-  color: ${props => props.theme.colors.blue2};
+  color: ${(props) => props.theme.colors.blue2};
   font-size: 3.4rem;
 `;
 
@@ -143,9 +142,9 @@ export const ButtonActions = styled.div.attrs(() => ({
   width: 100%;
   margin-top: 20px;
   cursor: pointer;
-`
+`;
 export const ButtonDefault = styled.button.attrs(() => ({
-  className: 'btn-default',
+  className: 'btn-default2',
 }))`
   background-color: #4caf50; /* Green */
   border: none;
@@ -158,59 +157,58 @@ export const ButtonDefault = styled.button.attrs(() => ({
   border-radius: 7px;
   margin: 2px;
   cursor: pointer;
-`
+`;
 export const ButtonDefault2 = styled.button.attrs(() => ({
-  className: 'button-style'
+  className: 'button-style',
 }))`
-    width: 100%;
-    padding: 5px;
-    background-color: ${props => props.theme.colors.purple1};
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-`
+  width: 100%;
+  padding: 5px;
+  background-color: ${(props) => props.theme.colors.purple1};
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
 
 export const ButtonPrimary = styled(ButtonDefault)`
   background-color: #326273;
 `;
 export const ButtonSecondary = styled(ButtonDefault)`
-  background-color: #5C9EAD;
-`
-export const ButtonDashboard = styled(ButtonDefault2)`
-`
+  background-color: #5c9ead;
+`;
+export const ButtonDashboard = styled(ButtonDefault2)``;
 
 // main
 
 export const Main = styled.main.attrs(() => ({
-  className: "main"
+  className: 'main',
 }))`
   width: 90%;
   margin: 0 auto;
   margin-top: 50px;
-  background-color: ${props => props.theme.colors.white1  };
-  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10); 
-  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.10);
+  background-color: ${(props) => props.theme.colors.white1};
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.1);
   border-radius: 25px;
-`
+`;
 
 // dashboard styles
 
 export const DashboardContainer = styled.section.attrs(() => ({
-  className: "dashboard"
+  className: 'dashboard',
 }))`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    margin: 0 auto;
-    padding: 20px;
-    gap: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin: 0 auto;
+  padding: 20px;
+  gap: 20px;
   & .dashboard-sidemenu {
     width: 40%;
     min-height: 300px;
-    background-color: ${props => props.theme.colors.purple1};
+    background-color: ${(props) => props.theme.colors.purple1};
     padding: 10px;
     border-radius: 15px;
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25)
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
   & .device-select {
     display: flex;
@@ -224,20 +222,18 @@ export const DashboardContainer = styled.section.attrs(() => ({
     padding: 5px;
     background-image: url(${img});
     background-repeat: no-repeat;
-    background-position:
-    calc(100% - 4px) calc(1em + -4px),
-    calc(100% - 15px) calc(1em + 2px),
-    calc(100% - 2.5em) 0.5em; 
+    background-position: calc(100% - 4px) calc(1em + -4px),
+      calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
   }
   & .dashboard-device {
     width: 100%;
     height: 150px;
-    background-color: ${props => props.theme.colors.white1};
+    background-color: ${(props) => props.theme.colors.white1};
     padding: 10px;
     border-radius: 15px;
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
-  & .device-tittle{
+  & .device-tittle {
     display: flex;
     margin-bottom: 15px;
   }
@@ -246,17 +242,17 @@ export const DashboardContainer = styled.section.attrs(() => ({
     text-align: center;
   }
   & .fix {
-    width: auto;    
+    width: auto;
   }
   & p {
     text-align: center;
     margin-bottom: 15px;
   }
-  & .dashboard-ports-container{
+  & .dashboard-ports-container {
     width: 70%;
     height: 100%;
     min-height: 300px;
-    background-color: ${props => props.theme.colors.purple1};
+    background-color: ${(props) => props.theme.colors.purple1};
     padding: 10px;
     border-radius: 3px;
     display: grid;
@@ -264,51 +260,49 @@ export const DashboardContainer = styled.section.attrs(() => ({
     grid-auto-flow: row;
     gap: 10px;
     border-radius: 15px;
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25)
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
   @media only screen and (max-width: 475px) {
-        flex-direction: column;
-        .dashboard-sidemenu {
-        width: 100%;
-}
-        .dashboard-ports-container {
-        width: 100%;
-        grid-template-columns: 1fr 1fr;
-        }
+    flex-direction: column;
+    .dashboard-sidemenu {
+      width: 100%;
     }
-    
-  @media only screen and (max-width: 600px) {
-   .device-tittle h2 {
-    font-size: 1.6rem;
- 
-   }
-}
-
-  @media only screen and (max-width: 375px) {
-   
     .dashboard-ports-container {
-        width: 100%;
-        grid-template-columns: 1fr;
+      width: 100%;
+      grid-template-columns: 1fr 1fr;
     }
   }
-`
+
+  @media only screen and (max-width: 600px) {
+    .device-tittle h2 {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media only screen and (max-width: 375px) {
+    .dashboard-ports-container {
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+  }
+`;
 
 // ports styles
 
 export const PortsContainer = styled.div.attrs(() => ({
-  className: 'dashboard-ports-card'
+  className: 'dashboard-ports-card',
 }))`
-    width: 100%;
-    height: 100px;
-    background-color: ${props => props.theme.colors.white1};
-    padding: 10px;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+  width: 100%;
+  height: 100px;
+  background-color: ${(props) => props.theme.colors.white1};
+  padding: 10px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   & .options-select {
     display: flex;
     justify-content: center;
-    align-items: center;   
+    align-items: center;
     width: 100%;
     text-align: center;
     appearance: none;
@@ -318,26 +312,24 @@ export const PortsContainer = styled.div.attrs(() => ({
     padding: 5px;
     background-image: url(${img});
     background-repeat: no-repeat;
-    background-position:
-    calc(100% - 4px) calc(1em + -4px),
-    calc(100% - 15px) calc(1em + 2px),
-    calc(100% - 2.5em) 0.5em; 
-}
- & .dashboard-ports-card p{
+    background-position: calc(100% - 4px) calc(1em + -4px),
+      calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+  }
+  & .dashboard-ports-card p {
     margin-bottom: 5px;
-}
-`
+  }
+`;
 export const Social = styled.div.attrs(() => ({
-  className: 'social-networks'
+  className: 'social-networks',
 }))`
   width: 30%;
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 export const FooterContianer = styled.footer.attrs(() => ({
-  className: 'footer'
+  className: 'footer',
 }))`
   width: 100%;
   height: 70px;
@@ -349,9 +341,9 @@ export const FooterContianer = styled.footer.attrs(() => ({
     display: flex;
     align-items: center;
     width: 70%;
-    margin: 15px 10px; 
+    margin: 15px 10px;
     font-size: 2.4rem;
-    color: ${props => props.theme.colors.white1}
+    color: ${(props) => props.theme.colors.white1};
   }
   & img {
     width: 25px;
@@ -359,11 +351,10 @@ export const FooterContianer = styled.footer.attrs(() => ({
     margin-right: 5px;
   }
   & a {
-    color: ${props => props.theme.colors.white1};
+    color: ${(props) => props.theme.colors.white1};
     text-decoration: none;
     font-size: 1.6rem;
     display: flex;
     align-items: center;
-    
   }
-`
+`;

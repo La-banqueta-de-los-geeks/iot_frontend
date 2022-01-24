@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
-import Ports from '../Ports';
-import SelectDevices from '../Devices/SelectDevices';
-import { CreateDevice } from '../Devices/CreateDevice';
-import Device from '../Devices/Device';
+
 import AppContext from '../../context/AppContext';
-import Tabs from 'react-bootstrap/Tabs'
-import Tab from 'react-bootstrap/Tab'
+import Col from 'react-bootstrap/Col';
+import { CreateDevice } from '../Devices/CreateDevice';
+import { CreatePort } from '../Ports/CreatePort';
+import DeviceGroups from '../DeviceGroups/Index';
+import Ports from '../Ports';
+import Row from 'react-bootstrap/Row';
+import SelectDevices from '../Devices/SelectDevices';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 
 const Dashboard = () => {
   const { device } = useContext(AppContext);
@@ -13,39 +17,41 @@ const Dashboard = () => {
     <>
       <div className="mx-5">
         <div className="row">
-          <div className="col-md-3">
-
+          <Col md={2}>
             <div className="card">
               <div className="card-body">
-                <div className="row">
-                  <div className="col-sm-10">
+                <Row>
+                  <Col sm={12} className="d-flex justify-content-end">
+                    <p className="mx-2">Dispositivos creados</p>
+                    <CreateDevice className="" />
+                    <CreatePort />
+                  </Col>
+                  <Col sm={12}>
                     <SelectDevices />
-                  </div>
-                  <div className="col-sm-2 py-2">
-                    <CreateDevice />
-                  </div>
-                </div>
-
-                {device && <Device device={device} />}
+                  </Col>
+                </Row>
               </div>
             </div>
-          </div>
-          <div className="col-md-9">
-            <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mb-3">
+          </Col>
+          <Col md={10}>
+            <Tabs
+              defaultActiveKey="home"
+              id="uncontrolled-tab-example"
+              className="mb-3"
+            >
               <Tab eventKey="home" title="Home">
-                <p>lorem</p>
-
+                {device && (
+                  <DeviceGroups device_groups={device.device_groups} />
+                )}
               </Tab>
               <Tab eventKey="profile" title="Profile">
                 {device ? <Ports /> : null}
-
               </Tab>
-              <Tab eventKey="contact" title="Contact" >
+              <Tab eventKey="contact" title="Contact">
                 <p>t</p>
               </Tab>
             </Tabs>
-          </div>
-
+          </Col>
         </div>
       </div>
     </>

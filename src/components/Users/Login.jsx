@@ -1,15 +1,16 @@
-import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
 import {
+  ButtonActions,
   Card,
   Container,
-  H1,
-  ButtonActions,
   FormContainer,
+  H1,
 } from '../../styles';
-import instance_users from '../../api/resources/users';
-import Button from '../Share/Button/index';
+import React, { useContext } from 'react';
+
 import AppContext from '../../context/AppContext';
+import Button from '../Share/Button/index';
+import instance_users from '../../services/resources/users';
+import { useHistory } from 'react-router-dom';
 
 export default () => {
   const { setOrganization, setUser } = useContext(AppContext);
@@ -57,8 +58,8 @@ export default () => {
               placeholder="password"
             />
             <ButtonActions>
-              <Button text='Reset' variant='typeB' type="reset" />
-              <Button text='Login' variant='typeA' type="submit" />
+              <Button text="Reset" variant="typeB" type="reset" />
+              <Button text="Login" variant="typeA" type="submit" />
             </ButtonActions>
           </form>
         </Card>
