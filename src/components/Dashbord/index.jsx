@@ -12,7 +12,17 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
 const Dashboard = () => {
-  const { device } = useContext(AppContext);
+  const {
+    device,
+    setDeviceGroup,
+    device_group,
+    device_sequences,
+    setDeviceSequences,
+    registerDeviceGroup,
+    addDeviceGroups,
+    device_groups,
+  } = useContext(AppContext);
+
   return (
     <>
       <div className="mx-5">
@@ -23,7 +33,7 @@ const Dashboard = () => {
                 <Row>
                   <Col sm={12} className="d-flex justify-content-end">
                     <p className="mx-2">Dispositivos creados</p>
-                    <CreateDevice className="" />
+                    <CreateDevice />
                     <CreatePort />
                   </Col>
                   <Col sm={12}>
@@ -41,7 +51,16 @@ const Dashboard = () => {
             >
               <Tab eventKey="home" title="Home">
                 {device && (
-                  <DeviceGroups device_groups={device.device_groups} />
+                  <DeviceGroups
+                    device_group={device_group}
+                    device_sequences={device_sequences}
+                    setDeviceSequences={setDeviceSequences}
+                    device_groups={device_groups}
+                    device={device}
+                    setDeviceGroup={setDeviceGroup}
+                    addDeviceGroups={addDeviceGroups}
+                    registerDeviceGroup={registerDeviceGroup}
+                  />
                 )}
               </Tab>
               <Tab eventKey="profile" title="Profile">

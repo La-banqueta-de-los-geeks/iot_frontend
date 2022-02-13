@@ -33,7 +33,6 @@ const CreateDevice = () => {
       show={show}
       handleClose={handleClose}
       handleShow={handleShow}
-      onBodyCard={() => <p> Formulario </p>}
     >
       <FormDevice register={register} handleClose={handleClose} />
     </CustomModal>

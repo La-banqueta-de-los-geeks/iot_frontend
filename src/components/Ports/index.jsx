@@ -34,7 +34,7 @@ const Ports = () => {
     <div className="row">
       {device_ports && device_ports.length !== 0 ? (
         device_ports.map((device_port) => (
-          <div className="col-sm-3 col-md-2 py-2" key={device_port.id}>
+          <div className="col-sm-3 col-md-2 py-2 " key={device_port.id}>
             <PortsContainer key={device_port.id}>
               <p>{`${device_port.id} ${device_port.port}`}</p>
               <ButtonDashboard

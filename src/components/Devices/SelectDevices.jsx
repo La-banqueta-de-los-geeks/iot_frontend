@@ -60,7 +60,10 @@ const SelectDevices = () => {
       {devices.length !== 0 ? (
         <div className="menu-main-device_sequences">
           {devices.map((device) => (
-            <ListGroup key={device.id} className="content-device_sequences">
+            <ListGroup
+              key={device.id}
+              className="display-pointer content-device_sequences"
+            >
               <ListGroup.Item
                 onClick={() => {
                   handleChange(device);

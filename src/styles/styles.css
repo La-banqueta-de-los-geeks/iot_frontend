@@ -58,3 +58,7 @@ body {
 .display-flex {
     display: flex;
 }
+
+.display-pointer{
+    cursor: pointer;
+}

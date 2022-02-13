@@ -1,25 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppContext from '../context/AppContext';
-import devicesEnpoints from '../services/resources/devices';
+import { createDeviceGroup } from '../services/resources/groups';
 
 function useDeviceGroups() {
-  const { setDeviceGroups, setDeviceGroup, device_groups } = React.useContext(
-    AppContext
-  );
-  const addDevices = (device_group) => {
+  const [device_groups, setDeviceGroups] = useState([]);
+  const [device_group, setDeviceGroup] = useState(null);
+  const addDeviceGroups = (device_group) => {
     const newDeviceGroups = [...device_groups];
     newDeviceGroups.push(device_group);
     setDeviceGroups(newDeviceGroups);
   };
   const registerDeviceGroup = (payload, callback, reject) =>
-    devicesEnpoints
-      .createDevice(payload)
+    createDeviceGroup(payload)
       .then((response) => {
         const { data } = response;
-        const { device } = data;
-        addDevices(device);
-        setDeviceGroup(device);
-        callback();
+        const { device_group } = data;
+        callback(device_group);
       })
       .catch((error) => {
         if (error.response) {
@@ -42,7 +38,11 @@ function useDeviceGroups() {
       });
   return {
     registerDeviceGroup,
-    addDevices,
+    addDeviceGroups,
+    device_groups,
+    setDeviceGroups,
+    device_group,
+    setDeviceGroup,
   };
 }
 

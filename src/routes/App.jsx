@@ -4,7 +4,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import React, { useState } from 'react';
 import { SearchOrganization, SearchUser } from '../config/utils';
-
+import useDeviceGroups from '../hooks/useDeviceGroups';
 import AppContext from '../context/AppContext';
 import Dashboard from '../components/Dashbord';
 import Layout from '../components/Layout';
@@ -17,10 +17,16 @@ import theme from '../theme/index';
 
 console.log('🚀 ~ file: App.jsx ~ line 12 ~ theme', theme);
 const App = () => {
+  const {
+    registerDeviceGroup,
+    addDeviceGroups,
+    device_groups,
+    setDeviceGroups,
+    device_group,
+    setDeviceGroup,
+  } = useDeviceGroups();
   const [device_ports, setDevicePorts] = useState([]);
   const [devices, setDevices] = useState([]);
-  const [device_groups, setDeviceGroups] = useState([]);
-  const [device_group, setDeviceGroup] = useState(null);
   const [device_sequences, setDeviceSequences] = useState([]);
   const [device, setDevice] = useState(null);
   const [user, setUser] = useState(SearchUser());
@@ -50,6 +56,8 @@ const App = () => {
         setDeviceGroup,
         device_sequences,
         setDeviceSequences,
+        registerDeviceGroup,
+        addDeviceGroups,
       }}
     >
       <ThemeProvider theme={theme}>
