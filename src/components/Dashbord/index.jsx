@@ -3,7 +3,6 @@ import React, { useContext } from 'react';
 import AppContext from '../../context/AppContext';
 import Col from 'react-bootstrap/Col';
 import { CreateDevice } from '../Devices/CreateDevice';
-import { CreatePort } from '../Ports/CreatePort';
 import DeviceGroups from '../DeviceGroups/Index';
 import Ports from '../Ports';
 import Row from 'react-bootstrap/Row';
@@ -16,13 +15,26 @@ const Dashboard = () => {
     device,
     setDeviceGroup,
     device_group,
-    device_sequences,
-    setDeviceSequences,
     registerDeviceGroup,
     addDeviceGroups,
     device_groups,
-  } = useContext(AppContext);
 
+    registerDeviceSequence,
+    addDeviceSequence,
+    deviceSequences,
+    setDeviceSequences,
+    organization,
+    deviceSequence,
+    setDeviceSequence,
+    registerNewPortValue,
+    getAllPortValues,
+    portValues,
+    getAllSequences,
+    device_ports,
+    setSequence,
+    sequence,
+    registerSequence,
+  } = useContext(AppContext);
   return (
     <>
       <div className="mx-5">
@@ -31,10 +43,11 @@ const Dashboard = () => {
             <div className="card">
               <div className="card-body">
                 <Row>
-                  <Col sm={12} className="d-flex justify-content-end">
+                  <Col sm={12}>
                     <p className="mx-2">Dispositivos creados</p>
+                  </Col>
+                  <Col sm={12}>
                     <CreateDevice />
-                    <CreatePort />
                   </Col>
                   <Col sm={12}>
                     <SelectDevices />
@@ -52,19 +65,32 @@ const Dashboard = () => {
               <Tab eventKey="home" title="Home">
                 {device && (
                   <DeviceGroups
-                    device_group={device_group}
-                    device_sequences={device_sequences}
+                    registerSequence={registerSequence}
+                    portValues={portValues}
+                    setDeviceSequence={setDeviceSequence}
+                    devicePorts={device_ports}
+                    addDeviceSequence={addDeviceSequence}
+                    deviceGroup={device_group}
+                    deviceSequences={deviceSequences}
                     setDeviceSequences={setDeviceSequences}
-                    device_groups={device_groups}
+                    deviceGroups={device_groups}
                     device={device}
                     setDeviceGroup={setDeviceGroup}
                     addDeviceGroups={addDeviceGroups}
                     registerDeviceGroup={registerDeviceGroup}
+                    registerDeviceSequence={registerDeviceSequence}
+                    deviceSequence={deviceSequence}
                   />
                 )}
               </Tab>
               <Tab eventKey="profile" title="Profile">
-                {device ? <Ports /> : null}
+                {device ? (
+                  <Ports
+                    portValues={portValues}
+                    registerNewPortValue={registerNewPortValue}
+                    getAllPortValues={getAllPortValues}
+                  />
+                ) : null}
               </Tab>
               <Tab eventKey="contact" title="Contact">
                 <p>t</p>

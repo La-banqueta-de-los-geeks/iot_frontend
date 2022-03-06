@@ -27,8 +27,8 @@ const CreateDevice = () => {
 
   return (
     <CustomModal
-      buttonActionText="+"
-      buttonActionVariant="outline-primary"
+      buttonActionText="Crear nuevo device"
+      buttonActionVariant="secondary"
       ModalTitle="Registrar nuevo Device"
       show={show}
       handleClose={handleClose}

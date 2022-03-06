@@ -14,6 +14,9 @@ import Register from '../components/Users/Register';
 import { ThemeProvider } from 'styled-components';
 import Unauthorized from './Unauthorized';
 import theme from '../theme/index';
+import useDeviceSequences from '../hooks/useDeviceSequences';
+import usePortValues from '../hooks/usePortValues';
+import useSequences from '../hooks/useSequences';
 
 console.log('🚀 ~ file: App.jsx ~ line 12 ~ theme', theme);
 const App = () => {
@@ -25,9 +28,34 @@ const App = () => {
     device_group,
     setDeviceGroup,
   } = useDeviceGroups();
+  const {
+    portValues,
+    setPortValues,
+    portValue,
+    setPortValue,
+    registerPortValue,
+    addPortValue,
+    allPortValues,
+  } = usePortValues();
+  const {
+    registerDeviceSequence,
+    addDeviceSequence,
+    deviceSequences,
+    setDeviceSequences,
+    deviceSequence,
+    setDeviceSequence,
+  } = useDeviceSequences();
+  const {
+    sequences,
+    setSequences,
+    sequence,
+    setSequence,
+    addSequence,
+    registerSequence,
+    allSequences,
+  } = useSequences();
   const [device_ports, setDevicePorts] = useState([]);
   const [devices, setDevices] = useState([]);
-  const [device_sequences, setDeviceSequences] = useState([]);
   const [device, setDevice] = useState(null);
   const [user, setUser] = useState(SearchUser());
   const [organization, setOrganization] = useState(SearchOrganization);
@@ -37,6 +65,12 @@ const App = () => {
     setUser(null);
     setOrganization(null);
   };
+
+  const registerNewPortValue = registerPortValue(organization);
+  const getAllPortValues = allPortValues(organization);
+
+  const getAllSequences = allSequences(device);
+
   return (
     <AppContext.Provider
       value={{
@@ -54,10 +88,28 @@ const App = () => {
         setDeviceGroups,
         device_group,
         setDeviceGroup,
-        device_sequences,
-        setDeviceSequences,
         registerDeviceGroup,
         addDeviceGroups,
+        registerDeviceSequence,
+        addDeviceSequence,
+        deviceSequences,
+        setDeviceSequences,
+        deviceSequence,
+        setDeviceSequence,
+        portValues,
+        setPortValues,
+        portValue,
+        setPortValue,
+        registerNewPortValue,
+        addPortValue,
+        getAllPortValues,
+        registerSequence,
+        getAllSequences,
+        sequences,
+        setSequences,
+        sequence,
+        setSequence,
+        addSequence,
       }}
     >
       <ThemeProvider theme={theme}>

@@ -32,7 +32,6 @@ const CreatePort = () => {
       show={show}
       handleClose={handleClose}
       handleShow={handleShow}
-      onBodyCard={() => <p> Formulario </p>}
     >
       <FormPorts register={register} handleClose={handleClose} />
     </CustomModal>

@@ -2,26 +2,26 @@ import React, { useState } from 'react';
 
 import { CustomModal } from '../Utils/Modal';
 import { setAuthUserToken } from '../../services/ApiInstance';
-import { FormGroup } from './FormGroup';
-const CreateGroup = ({
+import { FormSequence } from './FormDeviceSequence';
+const NewSequence = ({
   device,
-  setDeviceGroup,
-  addDeviceGroups,
-  registerDeviceGroup,
+  deviceGroup,
+  addDeviceSequence,
+  registerDeviceSequence,
   offsetSpanColButton,
   spanColButton,
 }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const register = (group, disabledLoading) => {
+  const register = (sequence, disabledLoading) => {
     const { device_token } = device;
     setAuthUserToken(device_token);
-    registerDeviceGroup(
-      { device_group: group },
-      (device_group) => {
-        setDeviceGroup(device_group);
-        addDeviceGroups(device_group);
+    registerDeviceSequence(
+      deviceGroup.id,
+      { device_sequence: sequence },
+      (sequence) => {
+        addDeviceSequence(sequence);
         handleClose();
         disabledLoading();
       },
@@ -35,15 +35,15 @@ const CreateGroup = ({
     <CustomModal
       offsetSpanColButton={offsetSpanColButton}
       spanColButton={spanColButton}
-      buttonActionText="Agregar Grupo"
+      buttonActionText="Agregar secuencia"
       buttonActionVariant="primary"
-      ModalTitle="Registrar nuevo grupo"
+      ModalTitle="Registrar nuevo secuencia"
       show={show}
       handleClose={handleClose}
       handleShow={handleShow}
     >
-      <FormGroup register={register} handleClose={handleClose} />
+      <FormSequence register={register} handleClose={handleClose} />
     </CustomModal>
   );
 };
-export { CreateGroup };
+export { NewSequence };

@@ -3,7 +3,11 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import React from 'react';
-const Sequences = ({ name }) => {
+const Sequences = ({
+  name,
+  componentButtonSecondary,
+  componentButtonAction,
+}) => {
   return (
     <Card className="mb-2">
       <Card.Body>
@@ -15,8 +19,8 @@ const Sequences = ({ name }) => {
         </ListGroupItem>
       </ListGroup>
       <Card.Body>
-        <Card.Link href="#">Agregar secuencia</Card.Link>
-        <Card.Link href="#">Ver secuencias</Card.Link>
+        {componentButtonAction()}
+        {componentButtonSecondary()}
       </Card.Body>
     </Card>
   );
